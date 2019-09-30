@@ -1,16 +1,21 @@
 package br.com.ebix.seguro.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-	
+public class User implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idLogin;
+	@Column(unique = true)
 	private String login;
 	private String senha;
 
@@ -30,23 +35,12 @@ public class User {
 		this.senha = senha;
 	}
 
-	public Integer getIdLogin() {
+	public Integer getId() {
 		return idLogin;
 	}
 
-	public void setIdLogin(Integer idLogin) {
+	public void setId(Integer idLogin) {
 		this.idLogin = idLogin;
 	}
 
-/*	public boolean ehIgual(String login, String senha) {
-		if (!this.login.equals(login)) {
-			return false;
-		}
-
-		if (!this.senha.equals(senha)) {
-			return false;
-		}
-
-		return true;
-	}*/
 }

@@ -5,6 +5,8 @@
 <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 <!--  Aqui são listadas todas as entidades  -->
 <class>br.com.ebix.seguro.entity.User</class>
+<class>br.com.ebix.seguro.entity.Seguro</class>
+<class>br.com.ebix.seguro.entity.Segurado</class>
 <properties>
 <!--  Propriedades JDBC  -->
 <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
@@ -19,3 +21,22 @@
 </properties>
 </persistence-unit>
 </persistence>
+
+<!--
+Values to hibernate.hbm2ddl.auto
+ 
+none 		=> No action is performed. The schema will not be generated.
+			   (Nenhuma ação. O banco nao será gerado)
+create-only => The database schema will be generated.
+			   (O banco será gerado)
+drop	 	=> The database schema will be dropped and created afterwards.
+			   (O banco será dropado e criado posteriormente)
+create		=> The database schema will be dropped and created afterwards.
+			   (O banco será dropado e criado posteriormente)
+create-drop => The database schema will be dropped and created afterwards. Upon closing the the SessionFactory, the database schema will be dropped.
+			   (O banco será dropado e criado posteriormente. Se a SessionFactory for fechada, o banco será dropado novamente)
+validate 	=> The database schema will be validated using the entity mappings.
+			   (O banco será validade usando o mapeamento de entidades
+update 		=> The database schema will be updated by comparing the existing database schema with the entity mappings.
+			   (O banco será atualizado, comparado com a base existente e  com o mapeamento de entidades)
+-->

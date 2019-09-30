@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.4.4.Final</version>
+			<version>5.4.5.Final</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
@@ -34,6 +34,14 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.17</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+<dependency>
+    <groupId>commons-beanutils</groupId>
+    <artifactId>commons-beanutils</artifactId>
+    <version>1.9.4</version>
+</dependency>
+
 </dependencies>
 
 

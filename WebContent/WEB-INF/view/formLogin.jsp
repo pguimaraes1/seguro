@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <c:url value="/login" var="linkServletSeguro"/>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/login" var="linkServletLogin" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,33 +24,32 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	
-					
-					
-						<div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 				<div class="card my-5">
 					<div class="card-body">
 						<h5 class="card-title text-center">Welcome!</h5>
-		<form  method="post" action="${linkServletSeguro}">
+						<form method="post" action="${linkServletLogin}">
 							<div class="form-group">
 								<label for="username">Username</label> <input type="text"
 									class="form-control" id="username" name="username"
-									placeholder="Username" value="">
+									placeholder="Username">
 							</div>
 							<div class="form-group">
 								<label for="cpf">Password</label> <input type="password"
-									class="form-control" id="password" name="password" placeholder="Password" value="">
+									class="form-control" id="password" name="password"
+									placeholder="Password">
 							</div>
-							
+
 							<input type="hidden" name="action" value="Login">
 							<button class="btn btn-primary">Sing in</button>
-					</form>					 
+						</form>
+					</div>
+					<div class="card-footer">${msg}</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

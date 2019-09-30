@@ -27,6 +27,7 @@
 <body>
 	<div class="row">
 		<div class="container">
+		<c:import url="logout-type.jsp"></c:import>
 			<div class="row">
 				<div class="col-sm-6 col-md-7 col-lg-5 mx-auto">
 					<div class="card my-5">

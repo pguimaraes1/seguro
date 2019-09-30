@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.List, br.com.ebix.seguro.entity.Segurado"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +34,8 @@
 			</div>
 			<div class="col-sm-6"></div>
 			<div class="col-sm-3">
-				<a href="add.html" class="btn btn-primary pull-right h2">Novo
-					Item</a>
+				<a href="${pageContext.request.contextPath}/segurados?action=CadastroSeguradoForm" class="btn btn-primary pull-right h2">Novo
+					Segurado</a>
 			</div>
 		</div>
 		<!-- /#top -->
@@ -52,30 +55,29 @@
 							<th>Sexo</th>
 							<th>Correntista</th>
 							<th>Dias de visita</th>
-							<th>Data de Nascimento</th>
 							<th>Data de Cadastro</th>
 							<th>Data de Alteracao</th>
 							<th class="actions">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${segurados }" var="segurado">
 						<tr>
-							<td>1001</td>
-							<td>Phellipe Sander dos Santos Guimarães</td>
-							<td>17243118755</td>
-							<td>297570566</td>
-							<td>Masculino</td>
-							<td>Sim</td>
-							<td>Seg, ter, qua, qui, sex</td>
-							<td>22/04/1998</td>
-							<td>00/00/0000</td>
-							<td>00/00/0000</td>
+							<td>${segurado.id }</td>
+							<td>${segurado.nome }</td>
+							<td>${segurado.cpf }</td>
+							<td>${segurado.rg }</td>
+							<td>${segurado.sexo.value }</td>
+							<td>${segurado.tipoSegurado.value }</td>
+							<td>${segurado.diasVisita }</td>
+							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${segurado.dataCadastro.time}" /></td>
+							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${segurado.dataAlteracao.time}" /></td>
 							<td class="actions"><a class="btn btn-success btn-xs"
 								href="view.html">Visualizar</a> <a
-								class="btn btn-warning btn-xs" href="edit.html">Editar</a> <a
-								class="btn btn-danger btn-xs" href="#" data-toggle="modal"
-								data-target="#delete-modal">Excluir</a></td>
+								class="btn btn-warning btn-xs" href="${pageContext.request.contextPath}/segurados?action=MostraSegurado&id=${segurado.id}">Editar</a>  
+								<a class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/segurados?action=RemoveSegurado&id=${segurado.id}">Excluir</a></td>
 						</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -93,7 +95,7 @@
 					</div>
 					<div class="modal-body">Deseja realmente excluir este item?</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary">Sim</button>
+					<a class="btn btn-primary" href="#">Sim</a>
 						<button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
 					</div>
 				</div>

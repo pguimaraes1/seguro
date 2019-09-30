@@ -1,4 +1,4 @@
-package br.com.ebix.seguro.service.seguro;
+package br.com.ebix.seguro.service.seguros;
 
 import java.io.IOException;
 
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.ebix.seguro.service.Action;
 
-public class ServiceCadastraSeguro implements Action  {
+public class CadastroSeguroForm implements Action  {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		return "rd:segurado?action=ServiceListaSeguros";
+		return "fw:cadastroSeguros.jsp";
 		
 	}
 

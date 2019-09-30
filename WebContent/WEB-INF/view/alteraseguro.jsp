@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<%@ page import="java.util.List, br.com.ebix.seguro.entity.Segurado"%>
+	<%@ page import="java.util.List, br.com.ebix.seguro.entity.Seguro"%>
 <c:url value="/seguros" var="linkServletSeguros" />
 <!DOCTYPE html>
 <html>
@@ -37,15 +37,16 @@
 							<div class="form-group">
 								<label for="nomeseguro">Identificacao</label> <input type="text"
 									class="form-control" id="nomeseguro" name="nomeseguro"
-									placeholder="Seu nome" value="${param.nomeseguro}">
+									placeholder="Seu nome" value="${seguro.nomeSeguro}">
 							</div>
 							<div class="form-group">
 								<label for="valor">valor</label> <input type="text"
-									class="form-control" id="valor" name="valor" placeholder="Valor" value="${param.valor}">
+									class="form-control" id="valor" name="valor" placeholder="Valor" value="${seguro.valorSeguro}">
 							</div>
-							<input type="hidden" name="action" value="ServiceCadastraSeguro">
+							<input type="hidden" name="id" value="${seguro.id }"> 
+							<input type="hidden" name="action" value="AlteraSeguro">
 							<button class="btn btn-lg btn-primary btn-block text-uppercase"
-								type="submit">Cadastrar</button>
+								type="submit">Alterar</button>
 						</form>
 					</div>
 					  <div class="card-footer">

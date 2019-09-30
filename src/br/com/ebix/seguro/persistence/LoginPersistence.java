@@ -10,11 +10,10 @@ import br.com.ebix.seguro.entity.User;
 import br.com.ebix.seguro.util.JPAUtil;
 
 public class LoginPersistence {
-	
+
 	static EntityManager em = new JPAUtil().geEntityManager();
 
-	
-	//verifica se o usuario existe
+	// verifica se o usuario existe
 	public User userExist(User user) {
 		try {
 

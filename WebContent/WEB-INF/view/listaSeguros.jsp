@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.List, br.com.ebix.seguro.entity.Seguro"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,22 +24,22 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-
 	<div id="main" class="container-fluid" style="margin-top: 50px">
 
 		<div id="top" class="row">
 			<div class="col-sm-3">
 				<h2>Itens</h2>
 			</div>
-			<div class="col-sm-6"></div>
 			<div class="col-sm-3">
-				<a href="add.html" class="btn btn-primary pull-right h2">Novo
-					Item</a>
+				<a href="${pageContext.request.contextPath}/seguros?action=CadastroSeguroForm" class="btn btn-primary pull-right h2">Novo
+					Seguro</a>
 			</div>
+			<div class="col-sm-3">
+				<a href="${pageContext.request.contextPath}/painel.jsp" class="btn btn-primary pull-right h2">Início</a>
+			</div>
+			
 		</div>
 		<!-- /#top -->
-
-
 		<hr />
 		<div id="list" class="row">
 
@@ -46,36 +48,22 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Nome</th>
-							<th>Cpf</th>
-							<th>Rg</th>
-							<th>Sexo</th>
-							<th>Correntista</th>
-							<th>Dias de visita</th>
-							<th>Data de Nascimento</th>
-							<th>Data de Cadastro</th>
-							<th>Data de Alteracao</th>
-							<th class="actions">Ações</th>
+							<th>Descrição</th>
+							<th>Valor</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1001</td>
-							<td>Phellipe Sander dos Santos Guimarães</td>
-							<td>17243118755</td>
-							<td>297570566</td>
-							<td>Masculino</td>
-							<td>Sim</td>
-							<td>Seg, ter, qua, qui, sex</td>
-							<td>22/04/1998</td>
-							<td>00/00/0000</td>
-							<td>00/00/0000</td>
-							<td class="actions"><a class="btn btn-success btn-xs"
-								href="view.html">Visualizar</a> <a
-								class="btn btn-warning btn-xs" href="edit.html">Editar</a> <a
-								class="btn btn-danger btn-xs" href="#" data-toggle="modal"
-								data-target="#delete-modal">Excluir</a></td>
-						</tr>
+						<c:forEach items="${seguros}" var="seguro" >
+							<tr>
+								<td>${seguro.id}</td>
+								<td>${seguro.nomeSeguro}</td>
+								<td>${seguro.valorSeguro}</td>
+								<td>
+									<a class="btn btn-warning btn-xs" href="${pageContext.request.contextPath}/seguros?action=MostraSeguro&id=${seguro.id}">Editar</a> <a
+									class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/seguros?action=RemoveSeguro&id=${seguro.id}">Excluir</a></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
